@@ -42,7 +42,6 @@
   align-items: flex-end;
   line-height: 0.7;
   transform: translateY(9%);
-  transition: font-size 0.5s;
 }
 
 .inner-at {
@@ -90,7 +89,7 @@
   box-shadow: 0 0 3px #fff5 inset;
   transition: box-shadow 0.3s;
 
-  &[data-active="true"] {
+  &[data-active=""] {
     background: linear-gradient(rgb(197, 197, 197), rgb(105, 105, 105));
   }
 
