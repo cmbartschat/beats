@@ -8,6 +8,7 @@ export default component$(() => {
     <>
       <main>
         <Nav active="convert" />
+        <h1>Convert</h1>
         <section class="box">
           <label>
             Enter timestamp <br />
@@ -18,6 +19,7 @@ export default component$(() => {
             Enter beat <br />
             <input />
           </label>
+          <br />
         </section>
         <Footer />
       </main>
@@ -26,7 +28,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "Convert Internet Time",
   meta: [
     {
       name: "description",

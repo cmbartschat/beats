@@ -13,11 +13,14 @@ export default component$(() => {
 
   return (
     <>
+      {" "}
+      <main>
+        <Nav active="share" />
+      </main>
       {parsed && parsed.type === "time" && <TimeView time={parsed} />}
       {parsed && parsed.type === "date" && <DateView time={parsed} />}
       {parsed === null && (
         <main>
-          <Nav active="share" />
           <div class="box">Unknown timestamp format.</div>
           <Footer />
         </main>
@@ -27,7 +30,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "Internet Time",
   meta: [
     {
       name: "description",
