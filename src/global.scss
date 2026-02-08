@@ -1,0 +1,141 @@
+:root {
+  background: url("./assets/globe.jpg");
+  background-position: top center;
+  background-size: cover;
+  min-height: 100%;
+  font-family: "Oxanium", sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.big-time {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.prefix {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.label {
+  font-size: 22px;
+  max-width: 8rem;
+  text-align: left;
+  margin: 0;
+}
+
+.at {
+  opacity: 0.55;
+  font-size: 250px;
+  line-height: 0.85;
+}
+
+.time {
+  font-size: 500px;
+  display: flex;
+  align-items: flex-end;
+  line-height: 0.7;
+  transform: translateY(9%);
+  transition: font-size 0.5s;
+}
+
+.inner-at {
+  opacity: 0.55;
+  display: none;
+  line-height: 1;
+  font-size: 0.5em;
+}
+
+@media screen and (max-width: 1150px) {
+  .big-time {
+    flex-direction: column;
+  }
+
+  .prefix {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .label {
+    text-align: center;
+    max-width: unset;
+  }
+  .at {
+    display: none;
+  }
+  .inner-at {
+    display: block;
+  }
+
+  .time {
+    font-size: 40vw;
+    justify-content: center;
+  }
+}
+
+.shiny-button {
+  background: linear-gradient(white, #575656);
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  overflow: hidden;
+  box-shadow: 0 0 3px #fff5 inset;
+  transition: box-shadow 0.3s;
+
+  &[data-active="true"] {
+    background: linear-gradient(rgb(197, 197, 197), rgb(105, 105, 105));
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 30%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: white;
+    z-index: -1;
+    transform: scaleX(2);
+    opacity: 0.15;
+    transition: transform 0.3s;
+  }
+
+  &,
+  &:link,
+  &:visited {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  &:not([data-active="true"]):hover {
+    &::before {
+      transform: translateY(-3px) scaleX(2);
+      box-shadow: 0 0 -5px 5px white inset;
+    }
+  }
+}
+
+main {
+  margin: 1rem auto;
+  max-width: 40rem;
+}
+
+.box {
+  padding: 1px 1rem;
+  border-radius: 0.5rem;
+  background-color: #fff5;
+  backdrop-filter: blur(10px);
+  font-weight: 500;
+  line-height: 1.7;
+  box-shadow: 0 0 1px white inset;
+}
