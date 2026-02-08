@@ -16,7 +16,7 @@ export default component$<{ time: ParsedTime }>((props) => {
         </div>
       </div>
 
-      <main>
+      <div class="narrow">
         <div class="box">
           <p>TODO: Last time was:xxx</p>
 
@@ -29,7 +29,7 @@ export default component$<{ time: ParsedTime }>((props) => {
           </p>
         </div>
         <Footer />
-      </main>
+      </div>
     </>
   );
 });

@@ -2,8 +2,10 @@ import { component$ } from "@builder.io/qwik";
 import { ParsedDate } from "./timestamp";
 import { Link } from "@builder.io/qwik-city";
 import Footer from "~/components/footer";
+import { parsedToDate } from "~/time";
 
 export default component$<{ time: ParsedDate }>((props) => {
+  const timestamp = parsedToDate(props.time).toString();
   return (
     <>
       <div class="big-time">
@@ -19,8 +21,9 @@ export default component$<{ time: ParsedDate }>((props) => {
           {String(props.time.beat).padStart(3, "0")}
         </div>
       </div>
-      <main>
+      <div class="narrow">
         <div class="box">
+          <p>In your timezone, this is {timestamp}</p>
           <p>
             <Link class="shiny-button" href={"/@" + props.time.beat}>
               Remove date
@@ -28,7 +31,7 @@ export default component$<{ time: ParsedDate }>((props) => {
           </p>
         </div>
         <Footer />
-      </main>
+      </div>
     </>
   );
 });

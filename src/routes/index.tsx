@@ -3,17 +3,17 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import About from "~/components/about";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
-import { beatToMs, timeToBeat } from "~/time";
+import { beatToMs, dateToBeat } from "~/time";
 
 export default component$(() => {
-  const now = useSignal(() => timeToBeat(new Date()));
+  const now = useSignal(() => dateToBeat(new Date()));
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$((ctx) => {
     let timeout: ReturnType<typeof setTimeout>;
 
     const update = () => {
-      const beat = timeToBeat(new Date());
+      const beat = dateToBeat(new Date());
       const nextWait = beatToMs(1 - (beat % 1));
       // const nextWait = beatToMs(.01 - (beat % .01));
       now.value = beat;
@@ -26,9 +26,9 @@ export default component$(() => {
   });
   return (
     <>
-      <main>
+      <header class="narrow">
         <Nav active="home" />
-      </main>
+      </header>
       <div class="big-time">
         <div class="prefix">
           <h1 class="label">current internet time</h1>
@@ -39,10 +39,10 @@ export default component$(() => {
           {Math.floor(now.value).toFixed(0).padStart(3, "0")}
         </div>
       </div>
-      <main>
+      <div class="narrow">
         <About />
         <Footer />
-      </main>
+      </div>
     </>
   );
 });

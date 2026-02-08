@@ -13,17 +13,16 @@ export default component$(() => {
 
   return (
     <>
-      {" "}
-      <main>
-        <Nav active="share" />
-      </main>
+      <header class="narrow">
+        <Nav active="home" />
+      </header>
       {parsed && parsed.type === "time" && <TimeView time={parsed} />}
       {parsed && parsed.type === "date" && <DateView time={parsed} />}
       {parsed === null && (
-        <main>
+        <div class="narrow">
           <div class="box">Unknown timestamp format.</div>
           <Footer />
-        </main>
+        </div>
       )}
     </>
   );

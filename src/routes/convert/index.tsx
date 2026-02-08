@@ -6,7 +6,7 @@ import Nav from "~/components/nav";
 export default component$(() => {
   return (
     <>
-      <main>
+      <main class="narrow">
         <Nav active="convert" />
         <h1>Convert</h1>
         <section class="box">
