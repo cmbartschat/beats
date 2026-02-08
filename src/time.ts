@@ -12,7 +12,10 @@ const msToBeat = (ms: number): number => {
   return ms * BEAT_PER_MS;
 };
 
-const dateToBeat = (date: Date): number => {
+const dateToBeat = (rawDate: Date): number => {
+  const date = new Date(rawDate);
+  date.setUTCMilliseconds(date.getUTCMilliseconds() + MS_PER_HOUR);
+
   const msPastUtc =
     ((date.getUTCHours() * 60 + date.getUTCMinutes()) * 60 +
       date.getUTCSeconds()) *
@@ -20,7 +23,7 @@ const dateToBeat = (date: Date): number => {
     date.getUTCMilliseconds();
   // todo convert utc to cmt
   // const cet = MS_PER_DAY * (1 /24) + msPastUtc
-  return msToBeat(MS_PER_HOUR + msPastUtc);
+  return msToBeat(msPastUtc);
 };
 
 const parsedToDate = (d: ParsedDate): Date => {
