@@ -7,8 +7,8 @@ type ParsedDate = {
 };
 type ParsedTime = { type: "time"; beat: number };
 
-const DATE_REGEX = /(\d{4,})-(\d{1,2})-(\d{1,2})@(\d+(.\d+)?)/;
-const BEAT_REGEX = /(\d+(.\d+)?)/;
+const DATE_REGEX = /^(\d{4,})-(\d{1,2})-(\d{1,2})@(\d+(.\d+)?)$/;
+const BEAT_REGEX = /^@(\d+(.\d+)?)$/;
 
 const parseTimestamp = (timestamp: string): ParsedDate | ParsedTime | null => {
   const match = timestamp.match(DATE_REGEX);
@@ -21,7 +21,6 @@ const parseTimestamp = (timestamp: string): ParsedDate | ParsedTime | null => {
   if (beatMatch) {
     return { type: "time", beat: parseFloat(beatMatch[1]) };
   }
-
   return null;
 };
 

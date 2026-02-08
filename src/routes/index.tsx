@@ -39,7 +39,6 @@ export default component$(() => {
           {Math.floor(now.value).toFixed(0).padStart(3, "0")}
         </div>
       </div>
-      {now.value.toFixed(2).padStart(3, "6")}
       <main>
         <About />
         <Footer />

@@ -12,13 +12,17 @@ export default component$(() => {
   const parsed = parseTimestamp(location.params.time);
 
   return (
-    <main>
-      <Nav active="share" />
+    <>
       {parsed && parsed.type === "time" && <TimeView time={parsed} />}
       {parsed && parsed.type === "date" && <DateView time={parsed} />}
-      {parsed === null && <div class="box">Unknown timestamp format.</div>}
-      <Footer />
-    </main>
+      {parsed === null && (
+        <main>
+          <Nav active="share" />
+          <div class="box">Unknown timestamp format.</div>
+          <Footer />
+        </main>
+      )}
+    </>
   );
 });
 

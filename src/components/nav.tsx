@@ -9,14 +9,14 @@ export default component$<{ active?: "convert" | "home" | "share" }>(
       </Link>{" "}
       <Link
         class="shiny-button"
-        href="/convert/"
+        href="/convert"
         data-active={props.active === "convert"}
       >
         Convert
       </Link>{" "}
       <Link
         class="shiny-button"
-        href="/share/"
+        href="/share"
         data-active={props.active === "share"}
       >
         Share
