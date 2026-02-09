@@ -11,14 +11,15 @@ export default component$<{ time: ParsedDate }>((props) => {
   const timestamp = date.toString();
   return (
     <>
+      <header class="narrow">
+        <Nav active="share" />
+      </header>
       <BigTime
         value={props.time.beat}
         displayDecimal={props.time.hasDecimal}
         label={`${props.time.year}-${String(props.time.month).padStart(2, "0")}-${String(props.time.day).padStart(2, "0")}`}
       />
-      <header class="narrow">
-        <Nav active="share" />
-      </header>
+
       <div class="narrow">
         <div class="box">
           <p>

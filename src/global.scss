@@ -9,7 +9,26 @@
   font-family: "Oxanium", sans-serif;
   font-weight: bold;
   color: white;
+  box-sizing: border-box;
 }
+
+* {
+  font-family: inherit;
+  box-sizing: inherit;
+}
+
+input,
+button {
+  font-size: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 1rem 0;
+  line-height: 1.3;
+}
+
 .nav {
   display: flex;
   gap: 4px;

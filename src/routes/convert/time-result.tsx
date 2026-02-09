@@ -8,9 +8,8 @@ export default component$<{ time: number }>((props) => {
   const link = stringifyTimestamp({ beat, type: "time", hasDecimal: false });
   return (
     <span>
-      {link}{" "}
       <Link class="default-link" href={"/" + link}>
-        Share
+        {link}
       </Link>
     </span>
   );

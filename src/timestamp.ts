@@ -31,7 +31,9 @@ const parseTimestamp = (timestamp: string): ParsedDate | ParsedTime | null => {
 };
 
 const stringifyBeat = (beat: number, hasDecimal: boolean) => {
-  return hasDecimal ? `${beat.toFixed(2)}` : `${Math.floor(beat)}`;
+  return hasDecimal
+    ? `${beat.toFixed(2)}`.padStart(6, "0")
+    : `${Math.floor(beat)}`.padStart(3, "0");
 };
 
 const stringifyTimestamp = (time: ParsedDate | ParsedTime) => {

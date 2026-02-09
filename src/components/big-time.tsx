@@ -16,12 +16,14 @@ export default component$<{
         <div class={styles.time}>
           {Math.floor(props.value).toFixed(0).padStart(3, "0")}
         </div>
-        {props.displayDecimal && (
+        {props.displayDecimal ? (
           <div class={styles.decimal}>
             {Math.floor((props.value * 100) % 100)
               .toFixed(0)
               .padStart(2, "0")}
           </div>
+        ) : (
+          <div class={[styles.decimal, styles.hidden]}>00</div>
         )}
       </div>
     </>

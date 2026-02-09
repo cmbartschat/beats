@@ -8,10 +8,11 @@ import Nav from "~/components/nav";
 export default component$(() => {
   return (
     <>
-      <CurrentTime />
       <header class="narrow">
         <Nav active="home" />
       </header>
+      <CurrentTime />
+
       <div class="narrow">
         <About />
         <Footer />

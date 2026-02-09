@@ -20,7 +20,7 @@
 
 .label {
   font-size: 22px;
-  max-width: 8rem;
+  max-width: 7rem;
   text-align: right;
   margin: 0;
   line-height: 1;
@@ -59,4 +59,8 @@
     max-width: unset;
     padding-bottom: 5px;
   }
+}
+
+.hidden {
+  visibility: hidden;
 }

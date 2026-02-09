@@ -1,10 +1,10 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import { msToBeat } from "~/time";
+import { dateToBeat } from "~/time";
 import { stringifyTimestamp } from "~/timestamp";
 
 export default component$<{ date: Date; time: number }>((props) => {
-  const beat = Math.round(msToBeat(props.time));
+  const beat = dateToBeat(props.date);
   const link = stringifyTimestamp({
     beat,
     year: props.date.getUTCFullYear(),
@@ -16,8 +16,9 @@ export default component$<{ date: Date; time: number }>((props) => {
 
   return (
     <span>
-      {link}
-      <Link href={"/" + link}>Share</Link>
+      <Link class="default-link" href={"/" + link}>
+        {link}
+      </Link>
     </span>
   );
 });

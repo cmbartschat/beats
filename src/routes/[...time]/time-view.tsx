@@ -8,14 +8,15 @@ import BigTime from "~/components/big-time";
 export default component$<{ time: ParsedTime }>((props) => {
   return (
     <>
+      <header class="narrow">
+        <Nav active="share" />
+      </header>
+
       <BigTime
         value={props.time.beat}
         displayDecimal={props.time.hasDecimal}
         label="&nbsp;"
       />
-      <header class="narrow">
-        <Nav active="share" />
-      </header>
       <div class="narrow">
         <div class="box">
           <p>TODO: Last time was:xxx</p>
