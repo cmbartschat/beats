@@ -13,13 +13,11 @@ export default component$(() => {
 
   return (
     <>
-      <header class="narrow">
-        <Nav active="share" />
-      </header>
       {parsed && parsed.type === "time" && <TimeView time={parsed} />}
       {parsed && parsed.type === "date" && <DateView time={parsed} />}
       {parsed === null && (
         <div class="narrow">
+          <Nav active="share" />
           <div class="box">Unknown timestamp format.</div>
           <Footer />
         </div>

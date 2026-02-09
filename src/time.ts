@@ -14,16 +14,15 @@ const msToBeat = (ms: number): number => {
 
 const dateToBeat = (rawDate: Date): number => {
   const date = new Date(rawDate);
+  // TODO(christoph): Check if this is correct or handles leap seconds correctly
   date.setUTCMilliseconds(date.getUTCMilliseconds() + MS_PER_HOUR);
 
-  const msPastUtc =
+  const msPastMidnight =
     ((date.getUTCHours() * 60 + date.getUTCMinutes()) * 60 +
       date.getUTCSeconds()) *
       1000 +
     date.getUTCMilliseconds();
-  // todo convert utc to cmt
-  // const cet = MS_PER_DAY * (1 /24) + msPastUtc
-  return msToBeat(msPastUtc);
+  return msToBeat(msPastMidnight);
 };
 
 const parsedToDate = (d: ParsedDate): Date => {

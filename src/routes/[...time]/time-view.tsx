@@ -2,12 +2,14 @@ import { component$ } from "@builder.io/qwik";
 import { ParsedTime } from "./timestamp";
 import { Link } from "@builder.io/qwik-city";
 import Footer from "~/components/footer";
+import Nav from "~/components/nav";
 
 export default component$<{ time: ParsedTime }>((props) => {
   return (
     <>
       <div class="big-time">
         <div class="prefix">
+          <div class="label">&nbsp;</div>
           <div class="at">@</div>
         </div>
         <div class="time">
@@ -17,6 +19,8 @@ export default component$<{ time: ParsedTime }>((props) => {
       </div>
 
       <div class="narrow">
+        <Nav active="share" />
+
         <div class="box">
           <p>TODO: Last time was:xxx</p>
 

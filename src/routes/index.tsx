@@ -1,44 +1,17 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import About from "~/components/about";
+import CurrentTime from "~/components/current-time";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
-import { beatToMs, dateToBeat } from "~/time";
 
 export default component$(() => {
-  const now = useSignal(() => dateToBeat(new Date()));
-
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$((ctx) => {
-    let timeout: ReturnType<typeof setTimeout>;
-
-    const update = () => {
-      const beat = dateToBeat(new Date());
-      const nextWait = beatToMs(1 - (beat % 1));
-      // const nextWait = beatToMs(.01 - (beat % .01));
-      now.value = beat;
-      timeout = setTimeout(update, nextWait);
-    };
-
-    update();
-
-    ctx.cleanup(() => clearTimeout(timeout));
-  });
   return (
     <>
+      <CurrentTime />
       <header class="narrow">
         <Nav active="home" />
       </header>
-      <div class="big-time">
-        <div class="prefix">
-          <h1 class="label">current internet time</h1>
-          <div class="at">@</div>
-        </div>
-        <div class="time">
-          <span class="inner-at">@</span>
-          {Math.floor(now.value).toFixed(0).padStart(3, "0")}
-        </div>
-      </div>
       <div class="narrow">
         <About />
         <Footer />

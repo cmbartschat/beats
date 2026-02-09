@@ -1,15 +1,22 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import CurrentTime from "~/components/current-time";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
 
 export default component$(() => {
   return (
     <>
-      <main class="narrow">
+      {" "}
+      <CurrentTime />
+      <header class="narrow">
         <Nav active="convert" />
-        <h1>Convert</h1>
+      </header>
+      <main class="narrow">
+        {/* <Nav active="convert" /> */}
         <section class="box">
+          <h1>Convert</h1>
+
           <label>
             Enter timestamp <br />
             <input />
