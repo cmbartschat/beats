@@ -8,7 +8,11 @@ export default component$<{ time: number }>((props) => {
   withTime.setHours(0);
   withTime.setMinutes(0);
   withTime.setMilliseconds(props.time);
-  const link = stringifyTimestamp(dateToParsed(withTime, false));
+  const link = stringifyTimestamp({
+    type: "time",
+    beat: dateToParsed(withTime, false).beat,
+    hasDecimal: false,
+  });
   return (
     <span>
       <Link class="default-link" href={"/" + link}>
