@@ -14,7 +14,6 @@ const msToBeat = (ms: number): number => {
 
 const dateToBeat = (rawDate: Date): number => {
   const date = new Date(rawDate);
-  // TODO(christoph): Check if this is correct or handles leap seconds correctly
   date.setUTCMilliseconds(date.getUTCMilliseconds() + MS_PER_HOUR);
 
   const msPastMidnight =

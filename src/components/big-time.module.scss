@@ -1,0 +1,62 @@
+@use "sass:math";
+
+.bigTime {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  margin-top: 35px;
+  --font-basis: 1000px;
+}
+
+.prefix {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.label {
+  font-size: 22px;
+  max-width: 8rem;
+  text-align: right;
+  margin: 0;
+  line-height: 1;
+}
+
+.at {
+  opacity: 0.55;
+  font-size: calc(var(--font-basis) * 0.15);
+  line-height: 0.85;
+}
+
+.decimal {
+  opacity: 0.55;
+  font-size: calc(var(--font-basis) * 0.1);
+  line-height: 0.7;
+  transform: translateY(0.05em);
+}
+
+.time {
+  font-size: calc(var(--font-basis) * 0.35);
+  line-height: 0.7;
+  transform: translateY(0.05em);
+}
+
+@media screen and (max-width: 1000px) {
+  .bigTime {
+    --font-basis: 100vw;
+  }
+
+  .label {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    max-width: unset;
+    padding-bottom: 5px;
+  }
+}

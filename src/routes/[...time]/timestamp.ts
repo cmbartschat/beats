@@ -30,6 +30,15 @@ const parseTimestamp = (timestamp: string): ParsedDate | ParsedTime | null => {
   return null;
 };
 
-export { parseTimestamp };
+const stringifyPath = (time: ParsedDate | ParsedTime) => {
+  switch (time.type) {
+    case "date":
+      return `/${time.year}-${String(time.month).padStart(2, "0")}-${String(time.day).padStart(2, "0")}@${time.beat}`;
+    case "time":
+      return `/@${time.beat.toFixed(2).replace(/\.0+$/, "")}`;
+  }
+};
+
+export { parseTimestamp, stringifyPath };
 
 export type { ParsedDate, ParsedTime };

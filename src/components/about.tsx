@@ -21,19 +21,28 @@ export default component$(() => (
 
     <p>
       If you'd like to know more about .Beats, check out{" "}
-      <a href="https://www.swatch.com/en_us/internet-time/">
+      <a
+        class="default-link"
+        href="https://www.swatch.com/en_us/internet-time/"
+      >
         the official Swatch Internet Time page
       </a>{" "}
       and{" "}
-      <a href="https://en.wikipedia.org/wiki/Swatch_Internet_Time">
+      <a
+        class="default-link"
+        href="https://en.wikipedia.org/wiki/Swatch_Internet_Time"
+      >
         the Wikipedia page for Swatch Internet Time
       </a>
       . There's also a great podcast episode about this system:{" "}
-      <a href="https://www.wnycstudios.org/podcasts/otm/articles/15-internet-time">
+      <a
+        class="default-link"
+        href="https://www.wnycstudios.org/podcasts/otm/articles/15-internet-time"
+      >
         On The Media #15 - Internet Time
       </a>
       . There's also a more pessimistic take at{" "}
-      <a href="https://youtu.be/D1QMEYVE85o">
+      <a class="default-link" href="https://youtu.be/D1QMEYVE85o">
         Swatch .Beat - The Failure of Internet Time - Bad Ideas #64
       </a>
       .

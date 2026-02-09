@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { ParsedDate } from "./timestamp";
+import { ParsedDate, stringifyPath } from "./timestamp";
 import { Link } from "@builder.io/qwik-city";
 import Footer from "~/components/footer";
 import { parsedToDate } from "~/time";
@@ -7,7 +7,8 @@ import Nav from "~/components/nav";
 import BigTime from "~/components/big-time";
 
 export default component$<{ time: ParsedDate }>((props) => {
-  const timestamp = parsedToDate(props.time).toString();
+  const date = parsedToDate(props.time);
+  const timestamp = date.toString();
   return (
     <>
       <BigTime
@@ -15,12 +16,21 @@ export default component$<{ time: ParsedDate }>((props) => {
         displayDecimal={props.time.hasDecimal}
         label={`${props.time.year}-${String(props.time.month).padStart(2, "0")}-${String(props.time.day).padStart(2, "0")}`}
       />
-      <div class="narrow">
+      <header class="narrow">
         <Nav active="share" />
+      </header>
+      <div class="narrow">
         <div class="box">
-          <p>In your timezone, this is {timestamp}</p>
           <p>
-            <Link class="shiny-button" href={"/@" + props.time.beat}>
+            In your timezone, this is:
+            <br />
+            {timestamp}
+          </p>
+          <p>
+            <Link
+              class="shiny-button"
+              href={stringifyPath({ ...props.time, type: "time" })}
+            >
               Remove date
             </Link>
           </p>

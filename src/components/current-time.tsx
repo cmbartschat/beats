@@ -15,7 +15,8 @@ export default component$(() => {
       const beat = dateToBeat(new Date());
       const beatGranularity = 0.01;
       const nextWait = beatToMs(beatGranularity - (beat % beatGranularity));
-      now.value = beat + updates.value;
+      // now.value = beat + updates.value;
+      now.value = beat;
       updates.value++;
       frame = requestAnimationFrame(() => {
         timeout = setTimeout(update, nextWait);
@@ -32,7 +33,7 @@ export default component$(() => {
   return (
     <>
       <BigTime value={now.value} displayDecimal label="current internet time" />
-      <div class="narrow">{updates}</div>
+      {/* <div class="narrow">{updates}</div> */}
     </>
   );
 });

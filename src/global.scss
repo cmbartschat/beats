@@ -1,3 +1,5 @@
+@use "sass:math";
+
 :root {
   background: url("./assets/globe.jpg");
   // background: url("./assets/globe3.jpg");
@@ -8,102 +10,6 @@
   font-weight: bold;
   color: white;
 }
-
-.big-time {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 60px;
-}
-
-.prefix {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  gap: 12px;
-}
-
-.label {
-  font-size: 22px;
-  max-width: 8rem;
-  text-align: right;
-  margin: 0;
-}
-
-.at {
-  opacity: 0.55;
-  font-size: 150px;
-  line-height: 0.85;
-}
-
-.decimal {
-  opacity: 0.55;
-  font-size: 150px;
-  line-height: 0.85;
-}
-
-.time {
-  font-size: 300px;
-  display: flex;
-  align-items: flex-end;
-  line-height: 0.7;
-  transform: translateY(9%);
-}
-
-.inner-at {
-  opacity: 0.55;
-  display: none;
-  line-height: 1;
-  font-size: 0.5em;
-}
-
-@media screen and (max-width: 1150px) {
-  .big-time {
-    flex-direction: column;
-  }
-
-  .prefix {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .label {
-    text-align: center;
-    max-width: unset;
-  }
-  .at {
-    display: none;
-  }
-  .inner-at {
-    display: block;
-  }
-
-  .time {
-    font-size: 500 / 1150 * 100vw;
-    justify-content: center;
-  }
-}
-
-// .at, .inner-at {
-//   animation: pulse-opacity 1.1s infinite;
-// }
-
-@keyframes pulse-opacity {
-  0% {
-    opacity: 0.55;
-  }
-  45% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.15;
-  }
-  100% {
-    opacity: 0.15;
-  }
-}
-
 .nav {
   display: flex;
   gap: 4px;
@@ -161,9 +67,12 @@
   &[data-active=""],
   &:active {
     background: linear-gradient(rgb(197, 197, 197), rgb(105, 105, 105));
+    &::before {
+      display: none !important;
+    }
   }
 
-  &:not([data-active="true"]):hover {
+  &:hover {
     &::before {
       transform: translateY(3px) scale(2);
       box-shadow: 0 0 -5px 5px white inset;
@@ -179,9 +88,25 @@
 .box {
   padding: 1px 1rem;
   border-radius: 0.5rem;
-  background-color: #fff5;
+  background-color: #c2c2c255;
   backdrop-filter: blur(10px);
   font-weight: 500;
   line-height: 1.7;
   box-shadow: 0 0 1px white inset;
+}
+
+.default-link:link {
+  color: white;
+}
+
+.default-link:visited {
+  color: #eee;
+}
+
+.default-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.default-link:active {
+  text-decoration: none;
 }
