@@ -1,11 +1,14 @@
 import { component$ } from "@builder.io/qwik";
-import { msToBeat } from "~/time";
+import { dateToParsed } from "~/time";
 import { stringifyTimestamp } from "../../timestamp";
 import { Link } from "@builder.io/qwik-city";
 
 export default component$<{ time: number }>((props) => {
-  const beat = Math.round(msToBeat(props.time));
-  const link = stringifyTimestamp({ beat, type: "time", hasDecimal: false });
+  const withTime = new Date();
+  withTime.setHours(0);
+  withTime.setMinutes(0);
+  withTime.setMilliseconds(props.time);
+  const link = stringifyTimestamp(dateToParsed(withTime, false));
   return (
     <span>
       <Link class="default-link" href={"/" + link}>

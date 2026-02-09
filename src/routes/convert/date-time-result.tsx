@@ -1,18 +1,12 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import { dateToBeat } from "~/time";
+import { dateToParsed } from "~/time";
 import { stringifyTimestamp } from "~/timestamp";
 
 export default component$<{ date: Date; time: number }>((props) => {
-  const beat = dateToBeat(props.date);
-  const link = stringifyTimestamp({
-    beat,
-    year: props.date.getUTCFullYear(),
-    month: props.date.getUTCMonth() + 1,
-    day: props.date.getUTCDate(),
-    type: "date",
-    hasDecimal: true,
-  });
+  const withTime = new Date(props.date);
+  withTime.setMilliseconds(withTime.getMilliseconds() + props.time);
+  const link = stringifyTimestamp(dateToParsed(withTime, false));
 
   return (
     <span>

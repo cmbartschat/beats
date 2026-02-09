@@ -24,6 +24,25 @@ const dateToBeat = (rawDate: Date): number => {
   return msToBeat(msPastMidnight);
 };
 
+const dateToParsed = (rawDate: Date, hasDecimal: boolean): ParsedDate => {
+  const date = new Date(rawDate);
+  date.setUTCMilliseconds(date.getUTCMilliseconds() + MS_PER_HOUR);
+
+  const msPastMidnight =
+    ((date.getUTCHours() * 60 + date.getUTCMinutes()) * 60 +
+      date.getUTCSeconds()) *
+      1000 +
+    date.getUTCMilliseconds();
+  return {
+    type: "date",
+    year: date.getUTCFullYear(),
+    month: date.getUTCMonth() + 1,
+    day: date.getUTCDate(),
+    beat: msToBeat(msPastMidnight),
+    hasDecimal,
+  };
+};
+
 const parsedToDate = (d: ParsedDate): Date => {
   const utcDate =
     d.year +
@@ -65,4 +84,11 @@ const getDuration2 = (diff: number): string => {
   return current.text;
 };
 
-export { beatToMs, msToBeat, dateToBeat, parsedToDate, getDuration2 };
+export {
+  beatToMs,
+  msToBeat,
+  dateToBeat,
+  parsedToDate,
+  getDuration2,
+  dateToParsed,
+};
