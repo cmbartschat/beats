@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { useLocation, type DocumentHead } from "@builder.io/qwik-city";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
-import { parseTimestamp } from "./timestamp";
+import { parseTimestamp } from "../../timestamp";
 import TimeView from "./time-view";
 import DateView from "./date-view";
 

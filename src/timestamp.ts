@@ -30,15 +30,20 @@ const parseTimestamp = (timestamp: string): ParsedDate | ParsedTime | null => {
   return null;
 };
 
-const stringifyPath = (time: ParsedDate | ParsedTime) => {
+const stringifyBeat = (beat: number, hasDecimal: boolean) => {
+  return hasDecimal ? `${beat.toFixed(2)}` : `${Math.floor(beat)}`;
+};
+
+const stringifyTimestamp = (time: ParsedDate | ParsedTime) => {
   switch (time.type) {
     case "date":
-      return `/${time.year}-${String(time.month).padStart(2, "0")}-${String(time.day).padStart(2, "0")}@${time.beat}`;
-    case "time":
-      return `/@${time.beat.toFixed(2).replace(/\.0+$/, "")}`;
+      return `${time.year.toFixed(0).padStart(4, "0")}-${String(time.month).padStart(2, "0")}-${String(time.day).padStart(2, "0")}@${stringifyBeat(time.beat, time.hasDecimal)}`;
+    case "time": {
+      return `@${stringifyBeat(time.beat, time.hasDecimal)}`;
+    }
   }
 };
 
-export { parseTimestamp, stringifyPath };
+export { parseTimestamp, stringifyTimestamp };
 
 export type { ParsedDate, ParsedTime };

@@ -4,6 +4,8 @@ import CurrentTime from "~/components/current-time";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
 import { beatToMs } from "~/time";
+import DateTimeResult from "./date-time-result";
+import TimeResult from "./time-result";
 
 const seconds = (n: number) => 1000 * n;
 const minutes = (n: number) => 60 * seconds(n);
@@ -35,8 +37,8 @@ const getDuration2 = (diff: number): string => {
 export default component$(() => {
   const beatInput = useSignal<number | null>(null);
   const dateInputElement = useSignal<HTMLInputElement | undefined>(undefined);
-  const dateInput = useSignal<Date | null>();
-  const timeInput = useSignal<number | null>();
+  const dateInput = useSignal<Date | null>(null);
+  const timeInput = useSignal<number | null>(null);
 
   return (
     <>
@@ -45,13 +47,10 @@ export default component$(() => {
         <Nav active="convert" />
       </header>
       <main class="narrow">
-        {/* <Nav active="convert" /> */}
         <section class="box">
           <h1>Convert</h1>
-          <ul>
-            <li>dateInput: {String(dateInput.value)}</li>
-            <li>timeInput: {String(timeInput.value)}</li>
-          </ul>
+
+          <h2>From your timezone</h2>
           <label>
             Enter date (optional) <br />
             <input
@@ -75,8 +74,6 @@ export default component$(() => {
           </button>
 
           <br />
-          {String(dateInput.value)}
-          <br />
           <label>
             Enter time <br />
             <input
@@ -87,9 +84,13 @@ export default component$(() => {
             />
           </label>
           <br />
-          {String(timeInput.value)}
-          <br />
-          <br />
+          {timeInput.value !== null &&
+            (dateInput.value !== null ? (
+              <DateTimeResult date={dateInput.value} time={timeInput.value} />
+            ) : (
+              <TimeResult time={timeInput.value} />
+            ))}
+          <h2>From Internet Time</h2>
           <label>
             Enter beat <br />
             <input
@@ -107,6 +108,10 @@ export default component$(() => {
           {beatInput.value !== null && (
             <>{getDuration2(beatToMs(beatInput.value))}</>
           )}
+          <ul>
+            <li>dateInput: {String(dateInput.value)}</li>
+            <li>timeInput: {String(timeInput.value)}</li>
+          </ul>
         </section>
         <Footer />
       </main>

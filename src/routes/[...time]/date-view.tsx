@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { ParsedDate, stringifyPath } from "./timestamp";
+import { ParsedDate, stringifyTimestamp } from "../../timestamp";
 import { Link } from "@builder.io/qwik-city";
 import Footer from "~/components/footer";
 import { parsedToDate } from "~/time";
@@ -29,7 +29,7 @@ export default component$<{ time: ParsedDate }>((props) => {
           <p>
             <Link
               class="shiny-button"
-              href={stringifyPath({ ...props.time, type: "time" })}
+              href={stringifyTimestamp({ ...props.time, type: "time" })}
             >
               Remove date
             </Link>

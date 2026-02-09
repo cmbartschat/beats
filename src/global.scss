@@ -86,13 +86,21 @@
 }
 
 .box {
-  padding: 1px 1rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   background-color: #c2c2c255;
   backdrop-filter: blur(10px);
   font-weight: 500;
   line-height: 1.7;
   box-shadow: 0 0 1px white inset;
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .default-link:link {
@@ -109,4 +117,8 @@
 
 .default-link:active {
   text-decoration: none;
+}
+
+footer {
+  margin-top: 1rem;
 }
