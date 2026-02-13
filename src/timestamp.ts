@@ -8,11 +8,10 @@ type ParsedDate = {
 };
 type ParsedTime = { type: "time"; beat: number; hasDecimal: boolean };
 
-const DATE_REGEX = /^(\d{4,})-(\d{1,2})-(\d{1,2})@(\d+(.\d+)?)$/;
-const BEAT_REGEX = /^@(\d+(.\d+)?)$/;
+const DATE_REGEX = /^(\d{4,})-(\d{1,2})-(\d{1,2})@(\d{1,3}(\.\d+)?)$/;
+const BEAT_REGEX = /^@?(\d{1,3}(\.\d+)?)$/;
 
 const parseTimestamp = (timestamp: string): ParsedDate | ParsedTime | null => {
-  console.log(timestamp);
   const match = timestamp.match(DATE_REGEX);
   if (match) {
     const [, year, month, day, beat] = match.map((e) => parseFloat(e));

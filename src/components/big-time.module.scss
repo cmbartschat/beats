@@ -43,6 +43,9 @@
   font-size: calc(var(--font-basis) * 0.35);
   line-height: 0.7;
   transform: translateY(0.05em);
+  text-shadow:
+    0 0 35px rgb(35, 72, 133),
+    0 0 15px rgb(137, 168, 218);
 }
 
 @media screen and (max-width: 1000px) {

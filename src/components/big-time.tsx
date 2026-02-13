@@ -7,10 +7,9 @@ export default component$<{
 }>((props) => {
   return (
     <>
-      <div class={styles.bigTime}>
+      <h1 class={styles.bigTime}>
         <div class={styles.prefix}>
-          <h1 class={styles.label}>{props.label}</h1>{" "}
-          {/* todo(christoph): Make this a slot */}
+          <div class={styles.label}>{props.label}</div>
           <div class={styles.at}>@</div>
         </div>
         <div class={styles.time}>
@@ -25,7 +24,7 @@ export default component$<{
         ) : (
           <div class={[styles.decimal, styles.hidden]}>00</div>
         )}
-      </div>
+      </h1>
     </>
   );
 });

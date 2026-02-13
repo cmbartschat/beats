@@ -1,16 +1,18 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useComputed$, useSignal } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
 import DateTimeResult from "./date-time-result";
 import TimeResult from "./time-result";
 import BeatResult from "./beat-result";
+import { parseTimestamp } from "~/timestamp";
 
 export default component$(() => {
-  const beatInput = useSignal<number | null>(null);
+  const beatInput = useSignal<string>("");
   const dateInputElement = useSignal<HTMLInputElement | undefined>(undefined);
   const dateInput = useSignal<Date | null>(null);
   const timeInput = useSignal<number | null>(null);
+  const parsedBeat = useComputed$(() => parseTimestamp(beatInput.value));
 
   return (
     <>
@@ -78,23 +80,10 @@ export default component$(() => {
           <h2>From Internet Time</h2>
           <label>
             Enter beat <br />
-            <input
-              type="number"
-              onInput$={(_, e) => {
-                if (e.valueAsNumber || e.valueAsNumber === 0) {
-                  beatInput.value = e.valueAsNumber;
-                } else {
-                  beatInput.value = null;
-                }
-              }}
-            />
+            <input bind:value={beatInput} />
           </label>
           <br />
-          {beatInput.value !== null && <BeatResult beats={beatInput.value} />}
-          <ul>
-            <li>dateInput: {String(dateInput.value)}</li>
-            <li>timeInput: {String(timeInput.value)}</li>
-          </ul>
+          <BeatResult time={parsedBeat.value} />
         </section>
         <Footer />
       </main>

@@ -5,10 +5,11 @@ import Footer from "~/components/footer";
 import { parsedToDate } from "~/time";
 import Nav from "~/components/nav";
 import BigTime from "~/components/big-time";
+import { LocalTime } from "~/components/local-time";
+import { RelativeDuration } from "~/components/relative-duration";
+import { GoogleCalendarLink } from "~/components/google-calendar-link";
 
 export default component$<{ time: ParsedDate }>((props) => {
-  const date = parsedToDate(props.time);
-  const timestamp = date.toString();
   return (
     <>
       <header class="narrow">
@@ -19,21 +20,24 @@ export default component$<{ time: ParsedDate }>((props) => {
         displayDecimal={props.time.hasDecimal}
         label={`${props.time.year}-${String(props.time.month).padStart(2, "0")}-${String(props.time.day).padStart(2, "0")}`}
       />
-
       <div class="narrow">
         <div class="box">
           <p>
-            In your timezone, this is:
+            <RelativeDuration date={parsedToDate(props.time)} qualify />
             <br />
-            {timestamp}
+            <LocalTime
+              date={parsedToDate(props.time)}
+              hasDecimal={props.time.hasDecimal}
+            ></LocalTime>
           </p>
-          <p>
+          <p class="nav">
             <Link
               class="shiny-button"
               href={stringifyTimestamp({ ...props.time, type: "time" })}
             >
               Remove date
             </Link>
+            <GoogleCalendarLink date={new Date(parsedToDate(props.time))} />
           </p>
         </div>
         <Footer />
