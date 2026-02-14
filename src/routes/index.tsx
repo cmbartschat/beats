@@ -1,9 +1,16 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
 import About from "~/components/about";
 import CurrentTime from "~/components/current-time";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
+import { socialPreview } from "~/metadata";
+import previewImg from "~/assets/globe.jpg?url";
+
+export const head = socialPreview({
+  title: "Internet Time",
+  image: previewImg,
+  description: "Display of current internet time in .beats format",
+});
 
 export default component$(() => {
   return (
@@ -20,13 +27,3 @@ export default component$(() => {
     </>
   );
 });
-
-export const head: DocumentHead = {
-  title: "Internet Time",
-  meta: [
-    {
-      name: "description",
-      content: "Qwik site description",
-    },
-  ],
-};

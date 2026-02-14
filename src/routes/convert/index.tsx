@@ -1,11 +1,18 @@
 import { component$, useComputed$, useSignal } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
 import DateTimeResult from "./date-time-result";
 import TimeResult from "./time-result";
 import BeatResult from "./beat-result";
 import { parseTimestamp } from "~/timestamp";
+import { socialPreview } from "~/metadata";
+import previewImg from "~/assets/globe.jpg?url";
+
+export const head = socialPreview({
+  title: "Convert | Internet Time",
+  image: previewImg,
+  description: "Convert to and from internet time in .beats format",
+});
 
 export default component$(() => {
   const beatInput = useSignal<string>("");
@@ -23,54 +30,55 @@ export default component$(() => {
         <section class="box">
           <h1>Convert</h1>
           <h2>From your timezone</h2>
-          <label>
-            Enter time <br />
-            <input
-              type="time"
-              onInput$={(_, e) => {
-                timeInput.value = e.valueAsNumber ?? null;
-              }}
-            />
-          </label>
-          <br />
-          <label>
-            Enter date (optional) <br />
-            <input
-              ref={dateInputElement}
-              type="date"
-              onInput$={(_, e) => {
-                const utcDate = e.valueAsDate;
 
-                if (!utcDate) {
-                  dateInput.value = null;
-                  return;
+          <div class="row end">
+            <label>
+              Enter time <br />
+              <input
+                type="time"
+                onInput$={(_, e) => {
+                  timeInput.value = e.valueAsNumber ?? null;
+                }}
+              />
+            </label>
+            <label>
+              Enter date (optional) <br />
+              <input
+                ref={dateInputElement}
+                type="date"
+                onInput$={(_, e) => {
+                  const utcDate = e.valueAsDate;
+
+                  if (!utcDate) {
+                    dateInput.value = null;
+                    return;
+                  }
+
+                  const d = new Date();
+                  d.setFullYear(utcDate.getUTCFullYear());
+                  d.setMonth(utcDate.getUTCMonth());
+                  d.setDate(utcDate.getUTCDate());
+                  d.setHours(0);
+                  d.setMinutes(0);
+                  d.setSeconds(0);
+                  d.setMilliseconds(0);
+
+                  dateInput.value = d;
+                }}
+              />
+            </label>
+            <button
+              disabled={!dateInput.value}
+              onClick$={() => {
+                if (dateInputElement.value) {
+                  dateInputElement.value.value = "";
                 }
-
-                const d = new Date();
-                d.setFullYear(utcDate.getUTCFullYear());
-                d.setMonth(utcDate.getUTCMonth());
-                d.setDate(utcDate.getUTCDate());
-                d.setHours(0);
-                d.setMinutes(0);
-                d.setSeconds(0);
-                d.setMilliseconds(0);
-
-                dateInput.value = d;
+                dateInput.value = null;
               }}
-            />
-          </label>
-          <button
-            disabled={!dateInput.value}
-            onClick$={() => {
-              if (dateInputElement.value) {
-                dateInputElement.value.value = "";
-              }
-              dateInput.value = null;
-            }}
-          >
-            Clear
-          </button>
-          <br />
+            >
+              Clear
+            </button>
+          </div>
           {timeInput.value !== null &&
             (dateInput.value !== null ? (
               <DateTimeResult date={dateInput.value} time={timeInput.value} />
@@ -90,13 +98,3 @@ export default component$(() => {
     </>
   );
 });
-
-export const head: DocumentHead = {
-  title: "Convert | Internet Time",
-  meta: [
-    {
-      name: "description",
-      content: "Qwik site description",
-    },
-  ],
-};

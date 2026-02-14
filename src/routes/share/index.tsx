@@ -1,9 +1,10 @@
 import { RequestHandler } from "@builder.io/qwik-city";
-import { dateToBeat } from "~/time";
+import { dateToParsed } from "~/time";
+import { stringifyTimestamp } from "~/timestamp";
 
 export const onGet: RequestHandler = async (requestEvent) => {
   throw requestEvent.redirect(
     307,
-    "/" + "@" + Math.floor(dateToBeat(new Date())),
+    "/" + stringifyTimestamp(dateToParsed(new Date(), true)),
   );
 };

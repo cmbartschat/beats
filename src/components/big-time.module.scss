@@ -39,6 +39,19 @@
   transform: translateY(0.05em);
 }
 
+.animatedFade {
+  animation: 0.5s linear both reverse fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .time {
   font-size: calc(var(--font-basis) * 0.35);
   line-height: 0.7;

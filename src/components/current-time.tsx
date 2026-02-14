@@ -18,6 +18,7 @@ export default component$(() => {
       // now.value = beat + updates.value;
       now.value = beat;
       updates.value++;
+      document.title = "@" + beat.toFixed(2) + " | Internet Time";
       frame = requestAnimationFrame(() => {
         timeout = setTimeout(update, nextWait);
       });
@@ -30,9 +31,15 @@ export default component$(() => {
       clearTimeout(timeout);
     });
   });
+
   return (
     <>
-      <BigTime value={now.value} displayDecimal label="current internet time" />
+      <BigTime
+        value={now.value}
+        displayDecimal
+        label="current internet time"
+        animated
+      />
       {/* <div class="narrow">{updates}</div> */}
     </>
   );

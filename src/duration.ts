@@ -9,6 +9,8 @@ const months = (n: number) => 30 * days(n);
 const years = (n: number) => 365 * days(n);
 
 const TIME_SLICES = [
+  { upTo: seconds(1), unit: seconds(1), text: " seconds" },
+  { upTo: seconds(2), unit: seconds(1), text: " second" },
   { upTo: minutes(2), unit: seconds(1), text: " seconds" },
   { upTo: minutes(120), unit: minutes(1), text: " minutes" },
   { upTo: hours(36), unit: hours(1), text: " hours" },
@@ -24,7 +26,7 @@ const getDuration = (
 ): [string, number] => {
   const diff = Math.abs(offset);
   const current = TIME_SLICES.find((e) => diff < e.upTo) || TIME_SLICES.at(-1)!;
-  const num = (diff / current.unit).toFixed(0);
+  const num = Math.floor(diff / current.unit);
   const qualifier = qualify ? (offset > 0 ? " from now" : " ago") : "";
   // todo update this to be correct
   return [num + current.text + qualifier, current.unit / 4];

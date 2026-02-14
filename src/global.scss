@@ -1,15 +1,22 @@
 @use "sass:math";
 
-:root {
+body {
   background: url("./assets/globe.jpg");
   // background: url("./assets/globe3.jpg");
   background-position: top center;
   background-size: cover;
+  margin: 0;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+:root {
   min-height: 100%;
   font-family: "Oxanium", sans-serif;
   font-weight: bold;
   color: white;
   box-sizing: border-box;
+  background: #0b0c15;
 }
 
 * {
@@ -140,4 +147,14 @@ h3 {
 
 footer {
   margin-top: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  &.end {
+    align-items: flex-end;
+  }
 }
