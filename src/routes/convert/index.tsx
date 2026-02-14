@@ -6,7 +6,7 @@ import TimeResult from "./time-result";
 import BeatResult from "./beat-result";
 import { parseTimestamp } from "~/timestamp";
 import { socialPreview } from "~/metadata";
-import previewImg from "~/assets/globe.jpg?url";
+import previewImg from "~/assets/globe.jpeg?url";
 
 export const head = socialPreview({
   title: "Convert | Internet Time",

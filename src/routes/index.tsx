@@ -4,7 +4,7 @@ import CurrentTime from "~/components/current-time";
 import Footer from "~/components/footer";
 import Nav from "~/components/nav";
 import { socialPreview } from "~/metadata";
-import previewImg from "~/assets/globe.jpg?url";
+import previewImg from "~/assets/globe.jpeg?url";
 
 export const head = socialPreview({
   title: "Internet Time",

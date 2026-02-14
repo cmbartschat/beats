@@ -7,7 +7,7 @@ import TimeView from "./time-view";
 import DateView from "./date-view";
 import { socialPreview } from "~/metadata";
 
-import previewImg from "~/assets/globe.jpg?url";
+import previewImg from "~/assets/globe.jpeg?url";
 
 export const useParsedTime = routeLoader$((ctx) => {
   const parsed = parseTimestamp(ctx.params.time);
