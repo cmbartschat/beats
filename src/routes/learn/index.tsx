@@ -11,6 +11,7 @@ import { CentibeatsSection } from "./03-centibeats-section";
 import { ConvertIntro } from "./05-convert-intro";
 import { Intro } from "./00-intro";
 import { ConvertExample } from "./06-convert-example";
+import { ConvertQuiz } from "./07-convert-quiz";
 
 export const head = socialPreview({
   title: "Learn | Internet Time",
@@ -44,7 +45,8 @@ export default component$(() => {
           {step >= 4 && <DateSection me={4} step={step} next={next} />}
           {step >= 5 && <ConvertIntro me={5} step={step} next={next} />}
           {step >= 6 && <ConvertExample me={6} step={step} next={next} />}
-          {step >= 7 && <p>Lesson complete!</p>}
+          {step >= 7 && <ConvertQuiz me={7} step={step} next={next} />}
+          {step >= 8 && <p>Lesson complete!</p>}
         </div>
         <Footer />
       </div>

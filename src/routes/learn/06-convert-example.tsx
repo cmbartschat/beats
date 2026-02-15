@@ -21,10 +21,9 @@ export const ConvertExample = component$<{
         <li>Add them together to get @850.</li>
       </ol>
       <p>
-        Note that if we used the exact method (20.5 &times; 1000 ÷ 24), we would
-        get @854.
+        Note that if we used the exact method (20.5 &times; 1,000 ÷ 24), we
+        would get @854.
       </p>
-
       {props.me === props.step && (
         <button class="shiny-button" onClick$={props.next}>
           Next

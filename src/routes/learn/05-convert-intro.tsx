@@ -27,7 +27,7 @@ export const ConvertIntro = component$<{
       </ol>
 
       <p>
-        If you have a calculator with you, (hours after midnight &times; 1000 ÷
+        If you have a calculator with you, (hours after midnight &times; 1,000 ÷
         24) will give an exact answer.
       </p>
 
