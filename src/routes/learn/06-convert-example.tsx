@@ -13,7 +13,7 @@ export const ConvertExample = component$<{
         <li>PST is UTC-8, so we need to add 9 to get to UTC+1</li>
         <li>Adding 9 gives 8:30 PM</li>
         <li>This is 20.5 hours after midnight</li>
-        <li>Divide by 24</li>
+        <li>Multiply 20.5 &times; 42 = 840 + 21 = 861</li>
         <li>Multiply by 1000</li>
       </ol>
 
