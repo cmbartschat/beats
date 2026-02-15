@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
-export default component$<{ active?: "convert" | "home" | "share" }>(
+export default component$<{ active?: "convert" | "home" | "share" | "learn" }>(
   (props) => (
     <nav class="nav">
       <Link
@@ -10,6 +10,13 @@ export default component$<{ active?: "convert" | "home" | "share" }>(
         data-active={props.active === "home"}
       >
         Home
+      </Link>{" "}
+      <Link
+        class="shiny-button grow"
+        href="/learn"
+        data-active={props.active === "learn"}
+      >
+        Learn
       </Link>{" "}
       <Link
         class="shiny-button grow"
