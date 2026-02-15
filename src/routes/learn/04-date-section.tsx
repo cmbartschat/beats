@@ -8,24 +8,21 @@ export const DateSection = component$<{
 }>((props) => {
   return (
     <>
-      <h2>Specifying date</h2>
+      <h2>Specifying Dates</h2>
       <p>
         To specify an exact point in time, you need a date (in YYYY-MM-DD
         format) and a beats timestamp, like 2026-02-15@550.
       </p>
       <p>
         Note that this date may not correspond with your local date. The beats
-        day resets at midnight on Central European Time (UTC+1). Fun fact: this
-        is due to the location of the Swatch company headquarters.
+        day resets at midnight UTC+1. Fun fact: this is due to the location of
+        the Swatch company headquarters in Switzerland.
       </p>
       <p>
         If it is 9PM on Feb 15th in California, in beats time, it's already the
-        16th @250.
+        @250 on the 16th in beats time.
       </p>
-      <p>
-        This time zone does not adjust with daylight savings, so if you do, the
-        relative time may shift from your local time relative to the year.
-      </p>
+      <p>This time zone does not adjust with daylight savings.</p>
 
       <h3>True or False?</h3>
       <Choices
@@ -41,7 +38,9 @@ export const DateSection = component$<{
         <div q:slot="done">
           <p>Correct!</p>
           {props.me === props.step && (
-            <button onClick$={props.next}>Next</button>
+            <button class="shiny-button" onClick$={props.next}>
+              Next
+            </button>
           )}
         </div>
       </Choices>

@@ -28,7 +28,9 @@ export const DaySection = component$<{
         <div q:slot="done">
           <p>Correct!</p>
           {props.me === props.step && (
-            <button onClick$={props.next}>Next</button>
+            <button class="shiny-button" onClick$={props.next}>
+              Next
+            </button>
           )}
         </div>
       </Choices>

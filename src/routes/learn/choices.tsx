@@ -15,28 +15,31 @@ const Choice = component$<{
   const hintVisible = useSignal(0);
 
   return (
-    <div>
+    <>
       <p>{props.question}</p>
-      {props.choices.map((e, i) => (
-        <button
-          key={i}
-          onClick$={() => {
-            if (i === props.correct) {
-              hintVisible.value = 0;
-              props.onCorrect$();
-            } else {
-              hintVisible.value++;
-            }
-          }}
-          disabled={props.finished}
-        >
-          {e}
-        </button>
-      ))}
+      <div class="nav">
+        {props.choices.map((e, i) => (
+          <button
+            class="shiny-button joined"
+            key={i}
+            onClick$={() => {
+              if (i === props.correct) {
+                hintVisible.value = 0;
+                props.onCorrect$();
+              } else {
+                hintVisible.value++;
+              }
+            }}
+            disabled={props.finished}
+          >
+            {e}
+          </button>
+        ))}
+      </div>
       {hintVisible.value > 0 && props.hint && (
         <p key={hintVisible.value}>{props.hint}</p>
       )}
-    </div>
+    </>
   );
 });
 

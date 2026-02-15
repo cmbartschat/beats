@@ -39,7 +39,6 @@ h3 {
 .nav {
   display: flex;
   gap: 4px;
-  margin-bottom: 4px;
 }
 
 .grow {
@@ -47,26 +46,33 @@ h3 {
 }
 
 .shiny-button {
-  background: linear-gradient(white, #575656);
   position: relative;
   z-index: 1;
   display: inline-block;
   padding: 0.5rem 1rem;
-  border-radius: 0;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 0 3px #fff5 inset;
   transition: box-shadow 0.3s;
   border: none;
-  cursor: pointer;
 
-  &:first-child {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+  &:not(:disabled) {
+    box-shadow: 0 0 3px #fff5 inset;
+    background: linear-gradient(white, #575656);
+    cursor: pointer;
   }
 
-  &:last-child {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+  &.joined {
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
   }
 
   &::before {
@@ -92,7 +98,8 @@ h3 {
     text-decoration: none;
   }
 
-  &[data-active=""],
+  &[aria-current="page"],
+  &[aria-pressed="true"],
   &:active {
     background: linear-gradient(rgb(197, 197, 197), rgb(105, 105, 105));
     &::before {
@@ -100,10 +107,19 @@ h3 {
     }
   }
 
-  &:hover {
+  &:disabled {
+    background: linear-gradient(rgb(197, 197, 197), rgb(105, 105, 105));
     &::before {
-      transform: translateY(3px) scale(2);
-      box-shadow: 0 0 -5px 5px white inset;
+      display: none !important;
+    }
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      &::before {
+        transform: translateY(3px) scale(2);
+        box-shadow: 0 0 -5px 5px white inset;
+      }
     }
   }
 }

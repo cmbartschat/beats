@@ -4,10 +4,13 @@ import Nav from "~/components/nav";
 import { socialPreview } from "~/metadata";
 import previewImg from "~/assets/globe.jpeg?url";
 import { useLocation, useNavigate } from "@builder.io/qwik-city";
-import { UnitsSection } from "./01-units-section";
-import { DaySection } from "./00-day-section";
-import { DateSection } from "./03-date-section";
-import { CentibeatsSection } from "./02-centibeats-section";
+import { UnitsSection } from "./02-units-section";
+import { DaySection } from "./01-day-section";
+import { DateSection } from "./04-date-section";
+import { CentibeatsSection } from "./03-centibeats-section";
+import { ConvertIntro } from "./05-convert-intro";
+import { Intro } from "./00-intro";
+import { ConvertExample } from "./06-convert-example";
 
 export const head = socialPreview({
   title: "Learn | Internet Time",
@@ -34,27 +37,14 @@ export default component$(() => {
       <div class="narrow">
         <h1>Learn how Internet Time Works</h1>
         <div class="box">
-          <p>
-            The Swatch Time format, invented by the Swatch watch company,
-            provides a simple way to refer to a time of day with just 3 digits,
-            like @444.
-          </p>
-          <p>
-            This interactive lesson will teach you how to work with internet
-            time.
-          </p>
-          {step === 0 && (
-            <div>
-              <button class="shiny-button" onClick$={next}>
-                Start
-              </button>
-            </div>
-          )}
-          {step > 0 && <DaySection me={1} step={step} next={next} />}
-          {step > 1 && <UnitsSection me={2} step={step} next={next} />}
-          {step > 2 && <CentibeatsSection me={3} step={step} next={next} />}
-          {step > 3 && <DateSection me={4} step={step} next={next} />}
-          {step > 4 && <p>Lesson complete!</p>}
+          <Intro me={0} step={step} next={next} />
+          {step >= 1 && <DaySection me={1} step={step} next={next} />}
+          {step >= 2 && <UnitsSection me={2} step={step} next={next} />}
+          {step >= 3 && <CentibeatsSection me={3} step={step} next={next} />}
+          {step >= 4 && <DateSection me={4} step={step} next={next} />}
+          {step >= 5 && <ConvertIntro me={5} step={step} next={next} />}
+          {step >= 6 && <ConvertExample me={6} step={step} next={next} />}
+          {step >= 7 && <p>Lesson complete!</p>}
         </div>
         <Footer />
       </div>

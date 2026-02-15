@@ -8,7 +8,7 @@ export const UnitsSection = component$<{
 }>((props) => {
   return (
     <>
-      <h2>How long is a beat?</h2>
+      <h2>How Long is a Beat?</h2>
       <p>Since each day is split into 1,000 .beats:</p>
       <p>24 hours ÷ 1,000 ≈ 1.44 minutes per beat</p>
       <h3>Quiz</h3>
@@ -23,7 +23,9 @@ export const UnitsSection = component$<{
         <div q:slot="done">
           <p>Done!</p>
           {props.me === props.step && (
-            <button onClick$={props.next}>Next</button>
+            <button class="shiny-button" onClick$={props.next}>
+              Next
+            </button>
           )}
         </div>
         <p q:slot="hint">Review the conversions carefully.</p>

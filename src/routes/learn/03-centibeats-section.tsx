@@ -8,7 +8,7 @@ export const CentibeatsSection = component$<{
 }>((props) => {
   return (
     <>
-      <h2>Dividing the beat</h2>
+      <h2>Dividing the Beat</h2>
       <p>
         A beat can also be split into centibeats, which are 1/100 of a beat.
       </p>
@@ -18,7 +18,7 @@ export const CentibeatsSection = component$<{
       <p>Match the values</p>
       <Matching
         pairs={[
-          ["10 centibeats", "8 seconds"],
+          ["50 centibeats", "40 seconds"],
           ["100 centibeats", "1 beat"],
           ["5 centibeats", "4 seconds"],
         ]}
@@ -26,7 +26,9 @@ export const CentibeatsSection = component$<{
         <div q:slot="done">
           <p>Done!</p>
           {props.me === props.step && (
-            <button onClick$={props.next}>Next</button>
+            <button class="shiny-button" onClick$={props.next}>
+              Next
+            </button>
           )}
         </div>
         <p q:slot="hint">Review the conversions carefully.</p>{" "}

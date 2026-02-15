@@ -5,30 +5,30 @@ export default component$<{ active?: "convert" | "home" | "share" | "learn" }>(
   (props) => (
     <nav class="nav">
       <Link
-        class="shiny-button grow"
+        class="shiny-button grow joined"
         href="/"
-        data-active={props.active === "home"}
+        aria-current={props.active === "home" ? "page" : undefined}
       >
         Home
       </Link>{" "}
       <Link
-        class="shiny-button grow"
+        class="shiny-button grow joined"
         href="/learn"
-        data-active={props.active === "learn"}
+        aria-current={props.active === "learn" ? "page" : undefined}
       >
         Learn
       </Link>{" "}
       <Link
-        class="shiny-button grow"
+        class="shiny-button grow joined"
         href="/convert"
-        data-active={props.active === "convert"}
+        aria-current={props.active === "convert" ? "page" : undefined}
       >
         Convert
       </Link>{" "}
       <Link
-        class="shiny-button grow"
+        class="shiny-button grow joined"
         href="/share"
-        data-active={props.active === "share"}
+        aria-current={props.active === "share" ? "page" : undefined}
       >
         Share
       </Link>

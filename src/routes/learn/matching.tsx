@@ -17,16 +17,17 @@ const MatchColumn = component$<{
   sorted.sort(([o1], [o2]) => o1 - o2);
 
   return (
-    <div>
+    <div class="nav">
       {sorted.map(([, i, e, s, d]) => (
         <button
+          class="shiny-button joined"
           key={i}
           onClick$={() => props.onSelect$(s ? -1 : i)}
           disabled={d}
           aria-pressed={s}
         >
           {e}
-          {s ? " selected" : ""}
+          {/* {s ? " selected" : ""} */}
         </button>
       ))}
     </div>
