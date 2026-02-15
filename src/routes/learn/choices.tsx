@@ -1,44 +1,41 @@
 import { component$, QRL, Slot, useSignal, useStore } from "@builder.io/qwik";
 
 type IChoices = {
-  choices: Array<[string, string, Array<string>]>;
+  choices: Array<[string, string, Array<string>, number]>;
 };
 
 const Choice = component$<{
   question: string;
   hint: string;
   choices: string[];
+  correct: number;
   onCorrect$: QRL<() => void>;
+  finished: boolean;
 }>((props) => {
-  const v = useSignal(() => 10000 * Math.random());
-  const sorted = props.choices.map(
-    ([e], i) => [(i * v.value + 5) % 10, i, e] as const,
-  );
-  sorted.sort(([o1], [o2]) => o1 - o2);
-  const hintVisible = useSignal(false);
-  const finished = useSignal(false);
+  const hintVisible = useSignal(0);
 
   return (
     <div>
       <p>{props.question}</p>
-      {sorted.map(([, i, e]) => (
+      {props.choices.map((e, i) => (
         <button
           key={i}
           onClick$={() => {
-            if (i === 0) {
-              hintVisible.value = false;
-              finished.value = true;
+            if (i === props.correct) {
+              hintVisible.value = 0;
               props.onCorrect$();
             } else {
-              hintVisible.value = true;
+              hintVisible.value++;
             }
           }}
-          disabled={finished.value}
+          disabled={props.finished}
         >
           {e}
         </button>
       ))}
-      {hintVisible.value && props.hint && <p>{props.hint}</p>}
+      {hintVisible.value > 0 && props.hint && (
+        <p key={hintVisible.value}>{props.hint}</p>
+      )}
     </div>
   );
 });
@@ -53,12 +50,14 @@ export const Choices = component$<IChoices>((props) => {
 
   return (
     <>
-      {props.choices.map(([question, hint, choices], i) => (
+      {props.choices.map(([question, hint, choices, correct], i) => (
         <Choice
           key={i}
           question={question}
           choices={choices}
           hint={hint}
+          correct={correct}
+          finished={store.finished.includes(i)}
           onCorrect$={() => store.finished.push(i)}
         />
       ))}

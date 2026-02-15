@@ -8,28 +8,25 @@ export const UnitsSection = component$<{
 }>((props) => {
   return (
     <>
-      <h2>Introduction</h2>
-      <p>
-        Each day is split into 1000 .beats, which are the units of Swatch Time.
-      </p>
-      <p>24 hours ÷ 1000 ≈ 1.26 minutes.</p>
-
+      <h2>How long is a beat?</h2>
+      <p>Since each day is split into 1,000 .beats:</p>
+      <p>24 hours ÷ 1,000 ≈ 1.44 minutes per beat</p>
       <h3>Quiz</h3>
-      <p>Match the following values:</p>
+      <p>Match the conventional durations with beats</p>
       <Matching
         pairs={[
-          ["24 hours", "1000 beats"],
+          ["24 hours", "1,000 beats"],
           ["4 hours", "125 beats"],
-          ["5 minutes", "4 beats"],
+          ["14 minutes", "10 beats"],
         ]}
       >
         <div q:slot="done">
-          All done!{" "}
-          <button disabled={props.me < props.step} onClick$={props.next}>
-            Next
-          </button>
+          <p>Done!</p>
+          {props.me === props.step && (
+            <button onClick$={props.next}>Next</button>
+          )}
         </div>
-        <p q:slot="hint">Easy as 1 2 3</p>
+        <p q:slot="hint">Review the conversions carefully.</p>
       </Matching>
     </>
   );

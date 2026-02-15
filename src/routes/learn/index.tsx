@@ -6,6 +6,8 @@ import previewImg from "~/assets/globe.jpeg?url";
 import { useLocation, useNavigate } from "@builder.io/qwik-city";
 import { UnitsSection } from "./01-units-section";
 import { DaySection } from "./00-day-section";
+import { DateSection } from "./03-date-section";
+import { CentibeatsSection } from "./02-centibeats-section";
 
 export const head = socialPreview({
   title: "Learn | Internet Time",
@@ -48,8 +50,11 @@ export default component$(() => {
               </button>
             </div>
           )}
-          {step > 0 && <DaySection me={0} step={step} next={next} />}
-          {step > 1 && <UnitsSection me={1} step={step} next={next} />}
+          {step > 0 && <DaySection me={1} step={step} next={next} />}
+          {step > 1 && <UnitsSection me={2} step={step} next={next} />}
+          {step > 2 && <CentibeatsSection me={3} step={step} next={next} />}
+          {step > 3 && <DateSection me={4} step={step} next={next} />}
+          {step > 4 && <p>Lesson complete!</p>}
         </div>
         <Footer />
       </div>
