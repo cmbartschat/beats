@@ -32,7 +32,7 @@ export default component$(() => {
   return (
     <>
       <header class="narrow">
-        <Nav active="learn" />
+        <Nav />
       </header>
       <div class="narrow">
         <h1>Learn how Internet Time Works</h1>

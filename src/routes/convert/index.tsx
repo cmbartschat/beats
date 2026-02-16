@@ -24,11 +24,11 @@ export default component$(() => {
   return (
     <>
       <header class="narrow">
-        <Nav active="convert" />
+        <Nav active="tools" />
       </header>
       <main class="narrow">
+        <h1>Convert</h1>
         <section class="box">
-          <h1>Convert</h1>
           <h2>From your timezone</h2>
 
           <div class="row end">
