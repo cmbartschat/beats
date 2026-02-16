@@ -24,7 +24,6 @@ export default component$(() => {
   const navigate = useNavigate();
   const step = Number(location.url.searchParams.get("step")) || 0;
   const next = $(() => {
-    console.log("navigating to step after", step);
     navigate("?" + new URLSearchParams({ step: String(step + 1) }), {
       scroll: false,
     });

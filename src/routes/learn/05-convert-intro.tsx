@@ -21,7 +21,7 @@ export const ConvertIntro = component$<{
         <li>Get the offset between your time zone and UTC+1.</li>
         <li>Add the offset to the time.</li>
         <li>Convert the time to hours after midnight.</li>
-        <li>Take out multiples of 6, multiply that by 250.</li>
+        <li>Take out multiples of 3, multiply that by 125.</li>
         <li>Multiply the remainder by 40.</li>
         <li>Add the results together.</li>
       </ol>
