@@ -29,9 +29,9 @@ export default component$(() => {
           </article>
           <article>
             <h2>Reminders</h2>
-            <p>Set timers and reminders</p>
-            <Link href="/reminders" class="default-link">
-              Open
+            <p>Schedule reminders and create timers</p>
+            <Link href="#" class="default-link">
+              Open (TODO)
             </Link>
           </article>
         </section>
