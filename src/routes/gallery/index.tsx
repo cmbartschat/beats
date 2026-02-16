@@ -3,13 +3,13 @@ import Footer from "~/components/footer";
 import Nav from "~/components/nav";
 import { socialPreview } from "~/metadata";
 import previewImg from "~/assets/globe.jpeg?url";
-import { Link } from "@builder.io/qwik-city";
 import { YoutubeEmbed } from "./youtube-embed";
+import { IconLink } from "./icon-link";
 
 export const head = socialPreview({
-  title: "Tools | Internet Time",
+  title: "Gallery | Internet Time",
   image: previewImg,
-  description: "Convert to and from internet time in .beats format",
+  description: "See uses of Internet time elsewhere on the internet",
 });
 
 export default component$(() => {
@@ -24,29 +24,38 @@ export default component$(() => {
           {/*
           
           https://www.swatch.com/en_us/internet-time/
-          https://en.wikipedia.org/wiki/Swatch_Internet_Time
-          https://youtu.be/D1QMEYVE85o
           */}
 
           <p>
-            <Link href="https://www.wnycstudios.org/podcasts/otm/articles/15-internet-time">
-              On the Media #15 - Internet Time
-            </Link>
+            <IconLink href="https://www.swatch.com/en_us/internet-time/">
+              Internet Time | Swatch
+            </IconLink>
           </p>
 
           <p>
-            <Link href="https://www.wnycstudios.org/podcasts/otm/articles/15-internet-time">
-              On the Media #15 - Internet Time
-            </Link>
+            <IconLink href="https://en.wikipedia.org/wiki/Swatch_Internet_Time">
+              Swatch Internet Time | Wikipedia
+            </IconLink>
           </p>
-
-          <YoutubeEmbed id={"4ROTh6gZz3Y"} title={"Swatch Internet Time"} />
-          <YoutubeEmbed
-            id={"D1QMEYVE85o"}
-            title={
-              "Swatch .Beat - The Failure of Internet Time - Bad Ideas #64"
-            }
-          />
+          <p>
+            <IconLink
+              // class="default-link"
+              href="https://www.wnycstudios.org/podcasts/otm/articles/15-internet-time"
+            >
+              On the Media #15 - Internet Time
+            </IconLink>
+          </p>
+          <p>
+            <YoutubeEmbed id={"4ROTh6gZz3Y"} title={"Swatch Internet Time"} />
+          </p>
+          <p>
+            <YoutubeEmbed
+              id={"D1QMEYVE85o"}
+              title={
+                "Swatch .Beat - The Failure of Internet Time - Bad Ideas #64"
+              }
+            />
+          </p>
         </section>
         <Footer />
       </main>

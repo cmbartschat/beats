@@ -1,2 +1,26 @@
+@use "sass:list";
+
 .youtubeEmbed {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    aspect-ratio: list.slash(1280, 720);
+    object-fit: cover;
+  }
+}
+
+.title {
+  color: blue;
+  background: white;
+  display: block;
+  padding: 0.5rem 1rem;
 }
