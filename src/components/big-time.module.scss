@@ -6,6 +6,7 @@
   background-position: top center;
   background-attachment: fixed;
   background-size: cover;
+  color: white;
 
   position: relative;
   margin: 0 auto;
@@ -16,11 +17,14 @@
   --font-basis: 1000px;
   padding: 40px 0;
   clip-path: polygon(
-    0 50%,
+    0 calc(50% + 0.04 * var(--font-basis)),
+    0 calc(50% - 0.04 * var(--font-basis)),
     calc(var(--font-basis) * 0.1) 0,
     calc(100% - 0.1 * var(--font-basis)) 0,
-    100% 50%,
-    50% calc(100% - 0.1 * var(--font-basis)),
+    100% calc(50% - 0.04 * var(--font-basis)),
+    100% calc(50% + 0.04 * var(--font-basis)),
+    calc(100% - 0.1 * var(--font-basis)) 100%,
+    50% 100%,
     50% 100%,
     calc(0.1 * var(--font-basis)) 100%
   );

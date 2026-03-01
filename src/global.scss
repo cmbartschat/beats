@@ -10,7 +10,7 @@ body {
   min-height: 100%;
   font-family: "Oxanium", sans-serif;
   font-weight: bold;
-  color: white;
+  color: black;
   box-sizing: border-box;
   background: white;
 }
@@ -144,11 +144,12 @@ h3 {
 }
 
 .default-link:link {
-  color: white;
+  color: inherit;
 }
 
 .default-link:visited {
-  color: #eee;
+  color: inherit;
+  opacity: 0.8;
 }
 
 .default-link:hover {
