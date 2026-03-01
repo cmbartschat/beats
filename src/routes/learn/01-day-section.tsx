@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, Fragment } from "@builder.io/qwik";
 import { Choices } from "./choices";
 import Lesson from "./lesson";
 
@@ -26,14 +26,12 @@ export const DaySection = component$<{
           ],
         ]}
       >
-        <div q:slot="done">
-          <p>Correct!</p>
-          {props.me === props.step && (
-            <button class="shiny-button" onClick$={props.next}>
-              Next
-            </button>
-          )}
-        </div>
+        <p q:slot="done">Correct!</p>
+        {props.me === props.step && (
+          <button q:slot="done" class="shiny-button" onClick$={props.next}>
+            Next
+          </button>
+        )}
       </Choices>
     </Lesson>
   );

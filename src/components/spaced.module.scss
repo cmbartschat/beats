@@ -1,0 +1,26 @@
+@use "sass:math";
+
+.spaced {
+  gap: 1rem;
+}
+
+.vertical {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.threeColumn {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}

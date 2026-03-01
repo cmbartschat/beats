@@ -1,6 +1,7 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { beatToMs, dateToBeat } from "~/time";
 import BigTime from "./big-time";
+import { stringifyTimestamp } from "~/timestamp";
 
 export default component$(() => {
   const now = useSignal(() => dateToBeat(new Date()));
@@ -18,7 +19,9 @@ export default component$(() => {
       // now.value = beat + updates.value;
       now.value = beat;
       updates.value++;
-      document.title = "@" + beat.toFixed(2) + " | Internet Time";
+      document.title =
+        stringifyTimestamp({ type: "time", beat, hasDecimal: true }) +
+        " | Internet Time";
       frame = requestAnimationFrame(() => {
         timeout = setTimeout(update, nextWait);
       });

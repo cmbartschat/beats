@@ -13,6 +13,7 @@ import { Intro } from "./00-intro";
 import { ConvertExample } from "./06-convert-example";
 import { ConvertQuiz } from "./07-convert-quiz";
 import Spaced from "~/components/spaced";
+import Lesson from "./lesson";
 
 export const head = socialPreview({
   title: "Learn | Internet Time",
@@ -51,7 +52,11 @@ export default component$(() => {
           {stepVisible(5) && <ConvertIntro me={5} step={step} next={next} />}
           {stepVisible(6) && <ConvertExample me={6} step={step} next={next} />}
           {stepVisible(7) && <ConvertQuiz me={7} step={step} next={next} />}
-          {stepVisible(8) && <p>Lesson complete!</p>}
+          {stepVisible(8) && (
+            <Lesson>
+              <p>Lesson complete!</p>
+            </Lesson>
+          )}
         </Spaced>
         <Footer />
       </div>

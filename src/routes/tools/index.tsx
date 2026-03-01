@@ -4,6 +4,7 @@ import Nav from "~/components/nav";
 import { socialPreview } from "~/metadata";
 import previewImg from "~/assets/globe.jpeg?url";
 import { Link } from "@builder.io/qwik-city";
+import Spaced from "~/components/spaced";
 
 export const head = socialPreview({
   title: "Tools | Internet Time",
@@ -19,22 +20,22 @@ export default component$(() => {
       </header>
       <main class="narrow">
         <h1>Tools</h1>
-        <section class="box">
-          <article>
+        <Spaced columns={2}>
+          <article class="box">
             <h2>Convert</h2>
             <p>Convert to/from internet time</p>
             <Link href="/convert" class="default-link">
               Open
             </Link>
           </article>
-          <article>
+          <article class="box">
             <h2>Reminders</h2>
             <p>Schedule reminders and create timers</p>
             <Link href="#" class="default-link">
               Open (TODO)
             </Link>
           </article>
-        </section>
+        </Spaced>
         <Footer />
       </main>
     </>
