@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Choices } from "./choices";
+import Lesson from "./lesson";
 
 export const DaySection = component$<{
   me: number;
@@ -7,7 +8,7 @@ export const DaySection = component$<{
   next: () => void;
 }>((props) => {
   return (
-    <>
+    <Lesson>
       <h2>Dividing the Day</h2>
       <p>
         Instead of splitting the day into 24 hours, then into 1,440 minutes,
@@ -34,6 +35,6 @@ export const DaySection = component$<{
           )}
         </div>
       </Choices>
-    </>
+    </Lesson>
   );
 });

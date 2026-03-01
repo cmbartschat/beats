@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Choices } from "./choices";
+import Lesson from "./lesson";
 
 export const ConvertQuiz = component$<{
   me: number;
@@ -7,7 +8,7 @@ export const ConvertQuiz = component$<{
   next: () => void;
 }>((props) => {
   return (
-    <>
+    <Lesson>
       <h3>Quiz</h3>
       <p>
         Let's do another conversion, step by step. Let's start with 7:15 AM.
@@ -62,6 +63,6 @@ export const ConvertQuiz = component$<{
           </Choices>
         </Choices>
       </Choices>
-    </>
+    </Lesson>
   );
 });

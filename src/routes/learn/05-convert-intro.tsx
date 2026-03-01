@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import Lesson from "./lesson";
 
 export const ConvertIntro = component$<{
   me: number;
@@ -6,7 +7,7 @@ export const ConvertIntro = component$<{
   next: () => void;
 }>((props) => {
   return (
-    <>
+    <Lesson>
       <h2>Conversion</h2>
       <p>
         We've just learned about the beat and centibeats unit, and how beat time
@@ -36,6 +37,6 @@ export const ConvertIntro = component$<{
           Show Me
         </button>
       )}
-    </>
+    </Lesson>
   );
 });

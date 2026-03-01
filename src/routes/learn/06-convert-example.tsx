@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import Lesson from "./lesson";
 
 export const ConvertExample = component$<{
   me: number;
@@ -6,7 +7,7 @@ export const ConvertExample = component$<{
   next: () => void;
 }>((props) => {
   return (
-    <>
+    <Lesson>
       <h3>Example</h3>
       <p>Let's start with 11:30 AM PST.</p>
       <ol>
@@ -29,6 +30,6 @@ export const ConvertExample = component$<{
           Next
         </button>
       )}
-    </>
+    </Lesson>
   );
 });

@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Matching } from "./matching";
+import Lesson from "./lesson";
 
 export const CentibeatsSection = component$<{
   me: number;
@@ -7,7 +8,7 @@ export const CentibeatsSection = component$<{
   next: () => void;
 }>((props) => {
   return (
-    <>
+    <Lesson>
       <h2>Dividing the Beat</h2>
       <p>
         A beat can also be split into centibeats, which are 1/100 of a beat.
@@ -33,6 +34,6 @@ export const CentibeatsSection = component$<{
         </div>
         <p q:slot="hint">Review the conversions carefully.</p>{" "}
       </Matching>
-    </>
+    </Lesson>
   );
 });

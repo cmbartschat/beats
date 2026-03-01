@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Choices } from "./choices";
+import Lesson from "./lesson";
 
 export const DateSection = component$<{
   me: number;
@@ -7,7 +8,7 @@ export const DateSection = component$<{
   next: () => void;
 }>((props) => {
   return (
-    <>
+    <Lesson>
       <h2>Specifying Dates</h2>
       <p>
         To specify an exact point in time, you need a date (in YYYY-MM-DD
@@ -44,6 +45,6 @@ export const DateSection = component$<{
           )}
         </div>
       </Choices>
-    </>
+    </Lesson>
   );
 });

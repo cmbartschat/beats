@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Matching } from "./matching";
+import Lesson from "./lesson";
 
 export const UnitsSection = component$<{
   me: number;
@@ -7,7 +8,7 @@ export const UnitsSection = component$<{
   next: () => void;
 }>((props) => {
   return (
-    <>
+    <Lesson>
       <h2>How Long is a Beat?</h2>
       <p>Since each day is split into 1,000 .beats:</p>
       <p>24 hours ÷ 1,000 ≈ 1.44 minutes per beat</p>
@@ -30,6 +31,6 @@ export const UnitsSection = component$<{
         </div>
         <p q:slot="hint">Review the conversions carefully.</p>
       </Matching>
-    </>
+    </Lesson>
   );
 });
