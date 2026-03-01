@@ -10,7 +10,6 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$((ctx) => {
     let timeout: ReturnType<typeof setTimeout>;
-    let frame: ReturnType<typeof requestAnimationFrame>;
 
     const update = () => {
       const beat = dateToBeat(new Date());
@@ -22,15 +21,12 @@ export default component$(() => {
       document.title =
         stringifyTimestamp({ type: "time", beat, hasDecimal: true }) +
         " | Internet Time";
-      frame = requestAnimationFrame(() => {
-        timeout = setTimeout(update, nextWait);
-      });
+      timeout = setTimeout(update, nextWait);
     };
 
     update();
 
     ctx.cleanup(() => {
-      cancelAnimationFrame(frame);
       clearTimeout(timeout);
     });
   });
