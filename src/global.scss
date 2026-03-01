@@ -1,11 +1,6 @@
 @use "sass:math";
 
 body {
-  background: url("./assets/globe.jpeg");
-  // background: url("./assets/globe3.jpg");
-  background-position: top center;
-  background-attachment: fixed;
-  background-size: cover;
   margin: 0;
   padding: 1rem;
   min-height: 100vh;
@@ -17,7 +12,7 @@ body {
   font-weight: bold;
   color: white;
   box-sizing: border-box;
-  background: #0b0c15;
+  background: white;
 }
 
 * {
