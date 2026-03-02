@@ -46,6 +46,11 @@ export default component$(() => {
             </IconLink>
           </p>
           <p>
+          <IconLink 
+          favicon="/01_DP_Favicon.ico"
+          href="https://dimepiece.co/stories/Dream-Watch/06788873-e95c-4e70-b177-ba57cfcdda19">The .beat Watch: Swatch's Y2K Fever Dream</IconLink>
+          </p>
+          <p>
             <YoutubeEmbed id={"4ROTh6gZz3Y"} title={"Swatch Internet Time"} />
           </p>
           <p>
