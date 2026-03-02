@@ -1,4 +1,4 @@
-import { component$, Fragment } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { Choices } from "./choices";
 import Lesson from "./lesson";
 

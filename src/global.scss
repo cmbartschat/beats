@@ -1,13 +1,12 @@
 @use "sass:math";
 
 body {
-    background: url("https://d2w9rnfcy7mm78.cloudfront.net/18430278/original_c733ca2ce5efef9c98c238794b4b6402.jpg?1665396856?bc=0");
+  background: url("https://d2w9rnfcy7mm78.cloudfront.net/18430278/original_c733ca2ce5efef9c98c238794b4b6402.jpg?1665396856?bc=0");
   // background: url("./assets/globe3.jpg");
   background-position: top center;
   background-attachment: fixed;
   background-size: cover;
 
-  
   margin: 0;
   padding: 1rem;
   min-height: 100vh;
